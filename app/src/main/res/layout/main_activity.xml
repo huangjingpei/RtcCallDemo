@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D3D3D3"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rtc_local_surfaceview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:visibility="gone">
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id = "@+id/LeftContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="100"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/userid"
+                android:visibility="visible"
+                android:text="0918"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="0dp"
+
+                android:hint="用户名"
+                android:inputType="text"
+                android:textColor="#ff00ff"
+                android:cursorVisible="false"
+                >
+
+            </EditText>
+
+
+            <Button
+                android:id="@+id/SDKInit"
+                android:visibility="visible"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="注册" />
+            <Button
+                android:id="@+id/startPrevieworstopPreview"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="开始预览" />
+            <Button
+                android:id="@+id/startCallorStopCall"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="开始呼叫" />
+
+            <!--<Button
+                android:id="@+id/but_hori"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="横屏" />-->
+
+            <Button
+                android:id="@+id/switchCamera"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:text="切换摄像头" />
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="clip_horizontal">
+                <CheckBox
+                    android:id="@+id/videoCallDisabled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:text="禁用视频通话"/>
+                <CheckBox
+                    android:id="@+id/useOpenSLES"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:text="音频使用OpenSLES"/>
+                <CheckBox
+                    android:id="@+id/disableBuiltInAEC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:text="禁用硬件AEC"/>
+                <CheckBox
+                    android:id="@+id/disableBuiltInAGC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:text="禁用硬件AGC"/>
+                <CheckBox
+                    android:id="@+id/disableBuiltInNS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:text="禁用硬件AGC"/>
+
+                <CheckBox
+                    android:id="@+id/useLegacyAudioDevice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:text="使用传统音频工作方式"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/LeftContainer"
+                >
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/rtc_remote_feeds_container"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/rtc_hori_remote_feeds_container"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1000"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            >
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:id="@+id/streaminfo_container"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>
