@@ -133,9 +133,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editor.commit();
         super.onDestroy();
         Log.e(TAG, "onDestroy Leave.");
-
-
-
+        onHangup();
+        if (isSdkInit) {
+            RTCEngineFactory.destoryEngine();
+            isSdkInit = false;
+        }
     }
 
 
@@ -619,6 +621,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     localRenderer.release();
                     if (localRenderer != null) {
                         localRenderer.release();
+                        localRenderer = null;
                     }
                     startorstopPreviewBtn.setText("开始预览");
                 }
@@ -626,6 +629,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     rtcEngine.hangup();
                     isStartCall = false;
                     startorstopCallBtn.setText("开始呼叫");
+                }
+                if (remoteRenderer != null) {
+                    remoteRenderer.release();
+                    remoteRenderer = null;
                 }
             }
         });
