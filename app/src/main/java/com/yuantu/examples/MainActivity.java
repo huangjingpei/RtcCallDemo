@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private LayoutInflater inflater;
     private boolean doRepeatTest = false;
+    private boolean isPlayingFile = false;
 
     private AlertDialog incomingDialog;
 
@@ -319,6 +320,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 remoteRenderer.setScalingType(RendererCommon.ScalingType.SCALE_ASPECT_FIT);
                                 remoteRenderer.init(eglBase.getEglBaseContext(), null);
                                 rtcEngine.callPeer(userName, remoteRenderer);
+                                peerName = userName;
                                 addFeedWindow(userName, remoteRenderer);
                             } else {
                                 rtcEngine.callPeer(userName, null);
@@ -652,6 +654,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    @Override
+    public void onStartPlaying(String filename, Boolean repeat) {
+        Log.e(TAG, "onStartPlaying :" + filename + " repeat " + repeat);
+        if (isPlayingFile) {
+
+        }
+        isPlayingFile = true;
+    }
+
+    @Override
+    public void onStopPlaying() {
+        Log.e(TAG, "onStopPlaying");
+        isPlayingFile = false;
     }
 
     @Override
